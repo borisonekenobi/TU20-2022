@@ -47,7 +47,7 @@ public class App {
 	    		break;
 	    	}
 	    	
-	    	MongoClient client = MongoClients.create("mongodb://" + user + ":" + pwd + "@192.168.1.114/plants");
+	    	MongoClient client = MongoClients.create("mongodb://" + user + ":" + pwd + "@vasilevk.tplinkdns.com/plants");
 	    	MongoDatabase database = client.getDatabase("plants");
 	    	MongoCollection<Document> plants = database.getCollection("plants");
 	    	
