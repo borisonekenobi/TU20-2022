@@ -32,12 +32,6 @@ public class App {
     public static void main(String[] args) {
     	Scanner input = new Scanner(System.in);
     	
-    	System.out.print("Enter Username: "); //collectionreader
-    	String user = input.nextLine();
-    	
-    	System.out.print("Enter Password: "); //secretpass
-    	String pwd = input.nextLine();
-    	
     	String search = "";
     	while (true) {
 	    	System.out.print("Enter Search Query: ");
@@ -47,7 +41,7 @@ public class App {
 	    		break;
 	    	}
 	    	
-	    	MongoClient client = MongoClients.create("mongodb://" + user + ":" + pwd + "@vasilevk.tplinkdns.com/plants");
+	    	MongoClient client = MongoClients.create("mongodb://collectionreader:secretpass@vasilevk.tplinkdns.com/plants");
 	    	MongoDatabase database = client.getDatabase("plants");
 	    	MongoCollection<Document> plants = database.getCollection("plants");
 	    	
