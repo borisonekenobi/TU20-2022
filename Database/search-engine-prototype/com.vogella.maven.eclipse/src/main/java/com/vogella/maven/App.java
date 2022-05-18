@@ -54,8 +54,20 @@ public class App {
 	    	regQuery.append("$options", "i");
 	
 	    	Document findQuery = new Document();
+	    	
+	    	/** Search by common name of plant */
 	    	findQuery.append("name", regQuery);
-	    	//findQuery.append("flowers.color", "White");
+	    	
+	    	/** Add specific tags to search
+	    	 * 
+	    	 * Possible Tags:
+	    	 * 		name, latin_name, url, family,
+	    	 * 		group, flowers, leaves, height,
+	    	 * 		habitat, grows_in_sun_or_shade,
+	    	 * 		native
+	    	 * */
+	    	findQuery.append("flowers.color", "White"); //only plants with white flowers
+	    	findQuery.append("group", "Orchids");		//only plants that are orchids
 	    	
 	    	MongoCursor<Document> cursor = plants.find(findQuery)
 	    			.projection(projectionFields)
